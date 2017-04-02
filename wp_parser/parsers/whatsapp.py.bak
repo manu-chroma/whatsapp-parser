@@ -1,15 +1,13 @@
 from datetime import datetime
+import message
 
-from . import message
-
-''' A line can be either:
+''' A line can be either: 
         09/12/2012 17:03:48: Sender Name: Message
         3/24/14, 1:59:59 PM: Sender Name: Message
         24/3/14, 13:59:59: Sender Name: Message
 '''
 
-
-class ParserWhatsapp:
+class ParserWhatsapp():
 
     def __init__(self, raw_messages):
         self.raw_messages = raw_messages

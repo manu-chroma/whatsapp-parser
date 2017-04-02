@@ -1,7 +1,7 @@
+import time
 from datetime import date
 from datetime import datetime
 from datetime import timedelta
-import time
 
 
 # get current ymd
@@ -37,10 +37,12 @@ def valid_date(date_str):
 
     return valid
 
+
 def date_diff(dateobj1, dateobj2):
     import math
     delta = dateobj2 - dateobj1
     return int(math.fabs(delta.days))
+
 
 def datecmp(date1, date2):
     year, month, day = date_split(date1)
@@ -53,8 +55,8 @@ def datecmp(date1, date2):
         else:
             return 1
     except ValueError:
-        #misc.error("Fix me! Invalid date", "datecmp")
-        print "Fix me! Invalid date"
+        # misc.error("Fix me! Invalid date", "datecmp")
+        print("Fix me! Invalid date")
         return False
 
 
@@ -65,7 +67,7 @@ def date_operation(date_str, num):
     return end_date
 
 
-def date_to_str(date_str):
+def date_to_str():
     return date.strftime('%Y-%m-%d')
 
 
@@ -89,7 +91,7 @@ def date_interval(initial_date, length, step=1, separator="-"):
     output = []
     current = start_date
     while current < end_date:
-        output.append(date_to_str(current))
+        output.append(date_to_str())
         current += timedelta(days=step)
 
     return output
@@ -119,5 +121,6 @@ def weekday_portuguese_to_english(string):
     elif string == "sab" or string == "sabado":
         return "Saturday"
 
+
 if __name__ == "__main__":
-    print date_diff(datetime(2015, 6, 4), datetime(2015, 07, 7))
+    print(date_diff(datetime(2015, 6, 4), datetime(2015, 7, 7)))
