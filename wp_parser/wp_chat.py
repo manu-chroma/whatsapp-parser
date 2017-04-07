@@ -212,7 +212,7 @@ class Chat:
             exit(1)
 
 
-def main():
+def main(explicit_args=False):
     parser = argparse.ArgumentParser(description='Chatlog Feature Extractor')
     parser.add_argument('-f', '--file', help='Chatlog file', required=True)
     parser.add_argument('-n', '--root', help='Root name', required=False)
@@ -223,7 +223,10 @@ def main():
     parser.add_argument('-o', '--output', help='JSON output file name', required=False,
                         default="./logs/basic_stats.json")
 
-    args = vars(parser.parse_args())
+    if not explicit_args:
+        args = vars(parser.parse_args())
+    else:
+        args = vars(parser.parse_args(explicit_args))
 
     c = Chat(args["file"], args["platform"])
     c.open_file()
